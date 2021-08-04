@@ -29,9 +29,9 @@ export class AppComponent {
   }
 
   public getList(query: string): Observable<string[]> {
-    const params = new HttpParams();
+    let params = new HttpParams();
     if (query) {
-      params.append('q', query)
+      params = params.append('q', query)
     }
     return this.httpClient.get<string[]>('https://example.com/api/items', { params });
   }
